@@ -99,6 +99,8 @@ public class MetadataManagerSignaturesTest {
 
         ExtendedMetadataDelegate provider = getMetadata("classpath:testSP_signed.xml");
         provider.setMetadataRequireSignature(true);
+        provider.setMetadataTrustCheck(false);
+
 
         manager.addMetadataProvider(provider);
         manager.refreshMetadata();
@@ -118,6 +120,7 @@ public class MetadataManagerSignaturesTest {
 
         ExtendedMetadataDelegate provider = getMetadata("classpath:testSP_signed_ca.xml");
         provider.setMetadataRequireSignature(true);
+        provider.setMetadataTrustCheck(false);
 
         manager.addMetadataProvider(provider);
         manager.refreshMetadata();
@@ -178,7 +181,7 @@ public class MetadataManagerSignaturesTest {
 
         ExtendedMetadataDelegate provider = getMetadata("classpath:testSP_signed_ca2_chain.xml");
         provider.setMetadataRequireSignature(true);
-        provider.setMetadataTrustCheck(true);
+        provider.setMetadataTrustCheck(false);
         provider.setForceMetadataRevocationCheck(false);
 
         manager.addMetadataProvider(provider);
