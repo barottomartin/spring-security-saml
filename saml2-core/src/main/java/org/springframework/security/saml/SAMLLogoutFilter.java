@@ -160,17 +160,6 @@ public class SAMLLogoutFilter extends LogoutFilter {
     }
 
     /**
-     * The filter will be used in case the URL of the request contains the DEFAULT_FILTER_URL.
-     *
-     * @param request request used to determine whether to enable this filter
-     * @return true if this filter should be used
-     */
-    @Override
-    protected boolean requiresLogout(HttpServletRequest request, HttpServletResponse response) {
-        return SAMLUtil.processFilter(getFilterProcessesUrl(), request);
-    }
-
-    /**
      * Performs global logout in case current user logged in using SAML and user hasn't selected local logout only
      *
      * @param request request

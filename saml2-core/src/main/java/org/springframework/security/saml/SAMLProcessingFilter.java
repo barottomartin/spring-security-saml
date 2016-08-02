@@ -46,11 +46,12 @@ public class SAMLProcessingFilter extends AbstractAuthenticationProcessingFilter
 
     protected SAMLProcessor processor;
     protected SAMLContextProvider contextProvider;
+    protected String filterProcessesUrl;
 
     /**
      * URL for Web SSO profile responses or unsolicited requests
      */
-    public static final String FILTER_URL = "/saml/SSO";
+    public static final String FILTER_URL = "/saml/sso";
 
     public SAMLProcessingFilter() {
         this(FILTER_URL);
@@ -160,4 +161,13 @@ public class SAMLProcessingFilter extends AbstractAuthenticationProcessingFilter
         Assert.notNull(contextProvider, "Context provider must be set");
     }
 
+    @Override
+    public void setFilterProcessesUrl(String filterProcessesUrl) {
+        super.setFilterProcessesUrl(filterProcessesUrl);
+        this.filterProcessesUrl = filterProcessesUrl;
+    }
+
+    public String getFilterProcessesUrl() {
+        return filterProcessesUrl;
+    }
 }

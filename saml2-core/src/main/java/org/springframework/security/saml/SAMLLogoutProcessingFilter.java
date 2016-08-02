@@ -55,6 +55,7 @@ public class SAMLLogoutProcessingFilter extends LogoutFilter {
     protected SingleLogoutProfile logoutProfile;
     protected SAMLLogger samlLogger;
     protected SAMLContextProvider contextProvider;
+    protected String filterProcessesUrl;
 
     /**
      * Class logger.
@@ -181,22 +182,6 @@ public class SAMLLogoutProcessingFilter extends LogoutFilter {
     }
 
     /**
-     * The filter will be used in case the URL of the request contains the DEFAULT_FILTER_URL.
-     *
-     * @param request request used to determine whether to enable this filter
-     * @return true if this filter should be used
-     */
-    @Override
-    protected boolean requiresLogout(HttpServletRequest request, HttpServletResponse response) {
-        return SAMLUtil.processFilter(getFilterProcessesUrl(), request);
-    }
-
-    @Override
-    public String getFilterProcessesUrl() {
-        return super.getFilterProcessesUrl();
-    }
-
-    /**
      * Object capable of parse SAML messages from requests, must be set.
      *
      * @param processor processor
@@ -254,4 +239,13 @@ public class SAMLLogoutProcessingFilter extends LogoutFilter {
         Assert.notNull(samlLogger, "SAML Logger must be set");
     }
 
+    @Override
+    public void setFilterProcessesUrl(String filterProcessesUrl) {
+        super.setFilterProcessesUrl(filterProcessesUrl);
+        this.filterProcessesUrl = filterProcessesUrl;
+    }
+
+    public String getFilterProcessesUrl() {
+        return filterProcessesUrl;
+    }
 }

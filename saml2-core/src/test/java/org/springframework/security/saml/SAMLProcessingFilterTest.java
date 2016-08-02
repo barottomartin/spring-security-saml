@@ -38,8 +38,7 @@ import static org.easymock.EasyMock.*;
 /**
  * @author Vladimir Schafer
  */
-public class
-        SAMLProcessingFilterTest {
+public class SAMLProcessingFilterTest {
 
     ApplicationContext context;
     SAMLProcessingFilter processingFiler;
