@@ -4,7 +4,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.springframework.security.extensions</groupId>
   <artifactId>spring-security-saml2-core</artifactId>
-  <version>1.0.0.RC2-jive7</version>
+  <version>1.0.0.RC2-jive2018</version>
   <name>Spring Security SAML v2 library</name>
   <description>Spring Security SAML v2 library</description>
   <url>https://github.com/SpringSource/spring-security-saml</url>
@@ -56,12 +56,21 @@
   </scm>
 
   <properties>
-    <org.springframework.version>4.3.1.RELEASE</org.springframework.version>
+    <org.springframework.version>5.1.2.RELEASE</org.springframework.version>
     <org.springframework.security.version>4.1.1.RELEASE</org.springframework.security.version>
   </properties>
 
   <build>
     <plugins>
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-compiler-plugin</artifactId>
+            <version>3.8.0</version>
+            <configuration>
+                <source>1.8</source>
+                <target>1.8</target>
+            </configuration>
+        </plugin>
         <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-source-plugin</artifactId>
